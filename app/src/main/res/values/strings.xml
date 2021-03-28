@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">YOLO-Diary</string>
+    <string name="diary_title_hint">Enter a title for the diary.</string>
+    <string name="diary_title_label">Title</string>
+    <string name="diary_content_label">Content</string>
+    <string name="diary_todo_label">Completed</string>
+</resources>
