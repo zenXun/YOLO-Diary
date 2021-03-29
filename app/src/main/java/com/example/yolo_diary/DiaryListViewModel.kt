@@ -7,4 +7,8 @@ class DiaryListViewModel : ViewModel() {
 
     private val diaryRepository = DiaryRepository.get()
     val diariesListLiveData = diaryRepository.getDiaries()
+
+    fun addDiary(diary: Diary) {
+        diaryRepository.addDiary(diary)
+    }
 }
