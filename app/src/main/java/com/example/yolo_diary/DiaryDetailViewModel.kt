@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.yolo_diary.database.DiaryRepository
+import java.io.File
 import java.util.*
 
 class DiaryDetailViewModel() : ViewModel() {
@@ -23,5 +24,9 @@ class DiaryDetailViewModel() : ViewModel() {
 
     fun saveDiary(diary: Diary) {
         diaryRepository.updateDiary(diary)
+    }
+
+    fun getPhotoFile(diary: Diary): File {
+        return diaryRepository.getPhotoFile(diary)
     }
 }

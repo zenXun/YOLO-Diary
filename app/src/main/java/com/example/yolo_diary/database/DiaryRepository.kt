@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import com.example.yolo_diary.Diary
+import java.io.File
 import java.util.*
 import java.util.concurrent.Executors
 
@@ -19,6 +20,7 @@ class DiaryRepository private constructor(context: Context) {
 
     private val diaryDao = database.diaryDao()
     private val executor = Executors.newSingleThreadExecutor()
+    private val filesDir = context.applicationContext.filesDir
 
     fun getDiaries(): LiveData<List<Diary>> = diaryDao.getDiaries()
 
@@ -35,6 +37,8 @@ class DiaryRepository private constructor(context: Context) {
             diaryDao.addDiary(diary)
         }
     }
+
+    fun getPhotoFile(diary: Diary): File = File(filesDir, diary.photoFileName)
 
     companion object {
         private var INSTANCE: DiaryRepository? = null

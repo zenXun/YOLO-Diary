@@ -1,10 +1,7 @@
 package com.example.yolo_diary.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.yolo_diary.Diary
 import java.util.*
 
@@ -22,4 +19,7 @@ interface DiaryDao {
 
     @Insert
     fun addDiary(diary: Diary)
+
+    @Delete
+    fun deleteDiary(diary: Diary)
 }

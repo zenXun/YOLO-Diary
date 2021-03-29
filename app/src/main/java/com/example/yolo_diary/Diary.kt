@@ -10,4 +10,8 @@ data class Diary(
     var title: String = "",
     var date: Date = Date(),
     var completed: Boolean = false,
-    var content: String = "")
+    var content: String = "") {
+
+    val photoFileName
+        get() = "IMG_$id.jpg"
+}
