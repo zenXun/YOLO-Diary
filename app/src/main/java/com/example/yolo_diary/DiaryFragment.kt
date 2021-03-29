@@ -24,6 +24,7 @@ class DiaryFragment : Fragment(), DatePickerFragment.Callbacks {
 
     private lateinit var diary: Diary
     private lateinit var titleField: EditText
+    private lateinit var contentField: EditText
     private lateinit var dateButton: Button
     private lateinit var completedCheckBox: CheckBox
     private val diaryDetailViewModel: DiaryDetailViewModel by lazy {
@@ -45,6 +46,7 @@ class DiaryFragment : Fragment(), DatePickerFragment.Callbacks {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_diary, container, false)
         titleField = view.findViewById(R.id.diary_title) as EditText
+        contentField = view.findViewById(R.id.diary_content) as EditText
         dateButton = view.findViewById(R.id.diary_date) as Button
         completedCheckBox = view.findViewById(R.id.diary_completed) as CheckBox
 
@@ -66,6 +68,7 @@ class DiaryFragment : Fragment(), DatePickerFragment.Callbacks {
 
     fun updateUI() {
         titleField.setText(diary.title)
+        contentField.setText(diary.content)
         dateButton.text = DateFormat.getDateInstance().format(diary.date)
         completedCheckBox.apply {
             isChecked = diary.completed
@@ -87,6 +90,19 @@ class DiaryFragment : Fragment(), DatePickerFragment.Callbacks {
         }
 
         titleField.addTextChangedListener(titleWatcher)
+
+        val contentWatcher = object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                diary.content = p0.toString()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {}
+
+        }
+
+        contentField.addTextChangedListener(contentWatcher)
 
         completedCheckBox.apply {
             setOnCheckedChangeListener { _, isCompleted ->

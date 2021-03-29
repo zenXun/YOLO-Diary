@@ -25,6 +25,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/diary_content_label"/>
+
+    <EditText
+        android:id="@+id/diary_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/diary_content_hint"/>
     
     <Button
         android:id="@+id/diary_date"

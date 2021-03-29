@@ -9,4 +9,5 @@ data class Diary(
     @PrimaryKey val id: UUID = UUID.randomUUID(),
     var title: String = "",
     var date: Date = Date(),
-    var completed: Boolean = false)
+    var completed: Boolean = false,
+    var content: String = "")

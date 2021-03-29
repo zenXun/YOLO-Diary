@@ -4,19 +4,18 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import com.example.yolo_diary.Diary
-import java.lang.IllegalStateException
 import java.util.*
 import java.util.concurrent.Executors
 
-private const val DATABSE_NAME = "diary-database"
+private const val DATABASE_NAME = "diary-database"
 
 class DiaryRepository private constructor(context: Context) {
 
     private val database : DiaryDatabase = Room.databaseBuilder(
         context.applicationContext,
         DiaryDatabase::class.java,
-        DATABSE_NAME
-    ).build()
+        DATABASE_NAME
+    ).addMigrations(migration_1_2).build()
 
     private val diaryDao = database.diaryDao()
     private val executor = Executors.newSingleThreadExecutor()

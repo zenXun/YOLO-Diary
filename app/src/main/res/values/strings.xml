@@ -3,5 +3,7 @@
     <string name="diary_title_hint">Enter a title for the diary.</string>
     <string name="diary_title_label">Title</string>
     <string name="diary_content_label">Content</string>
+    <string name="diary_content_hint">YOLO. Write something about it!.</string>
     <string name="diary_todo_label">Completed</string>
+    <string name="new_diary">New Diary</string>
 </resources>
